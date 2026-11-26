@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-Live URL:
-
-
- https://aminbiography.github.io/ai-universe/
-=======
 # AI Universe
+
+**Live URL:** https://aminbiography.github.io/ai-universe/
 
 A browser-based directory that combines multiple public catalogs:
 
@@ -30,8 +26,3 @@ Then open `http://localhost:8000`.
 - Some AI API providers require an account or API key to use their services. This project lists providers; it does not send inference requests or store API keys.
 - Flocci catalog data is used with attribution. See the [Flocci AI Tools directory](https://aitools.flocci.in/).
 - Public API listings are sourced from [Public APIs](https://publicapis.lol/), whose catalog is based on the public-apis community project.
-
-## Header artwork
-
-The project header uses the supplied printed-circuit-board image at `assets/pcb-circuit-board.jpg` as its background artwork.
->>>>>>> fcb67e2 (Updated)
