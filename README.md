@@ -1,16 +1,16 @@
-<p align="center">
-
-# AI Universe Hub   
-### Discover the World of Artificial Intelligence
-
-</p>
+<h1 align="center">
+ AI Universe Hub
+</h1>
+<h2 align="center">
+ Discover the World of Artificial Intelligence
+</h2>
 
 <p align="center">
   <strong>Explore AI tools, machine-learning platforms, and developer APIs in one place.</strong>
 </p>
 
 <p align="center">
-  <a href="https://aminbiography.github.io/ai-universe/">Live Demo</a>·
+  <a href="https://aminbiography.github.io/ai-universe/">Live Demo</a>
 </p>
 
 ---
