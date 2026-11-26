@@ -1,10 +1,9 @@
-# AI Universe Hub - Explore the World of Artificial Intelligence
+# AI Universe Hub 
+### Explore the World of Artificial Intelligence
 
 **Discover AI products, explore machine-learning services, and navigate developer APIs through a unified, multi-source directory.**
 
 **Live Website:** https://aminbiography.github.io/ai-universe/
-
-**GitHub Repository:** https://github.com/aminbiography/ai-universe
 
 ---
 
