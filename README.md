@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <a href="https://aminbiography.github.io/ai-universe/">Live Demo</a>
+  <a href="https://aminbiography.github.io/ai-universe/">Live App</a>
 </p>
 
 ---
