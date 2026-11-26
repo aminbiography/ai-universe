@@ -1,6 +1,8 @@
 <p align="center">
-    # AI Universe Hub  
-    ### Discover the World of Artificial Intelligence
+
+# AI Universe Hub   
+### Discover the World of Artificial Intelligence
+
 </p>
 
 <p align="center">
