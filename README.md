@@ -1,69 +1,97 @@
-<h1 align="center">
- AI Universe Hub
-</h1>
-<h2 align="center">
- Discover the World of Artificial Intelligence
-</h2>
+# AI Universe Hub - Explore the World of Artificial Intelligence
 
-<p align="center">
-  <strong>Explore AI tools, machine-learning platforms, and developer APIs in one place.</strong>
-</p>
+**Discover AI products, explore machine-learning services, and navigate developer APIs through a unified, multi-source directory.**
 
-<p align="center">
-  <a href="https://aminbiography.github.io/ai-universe/">Live App</a>
-</p>
+**Live Website:** https://aminbiography.github.io/ai-universe/
+
+**GitHub Repository:** https://github.com/aminbiography/ai-universe
 
 ---
 
-## About the Project
+## Project Overview
 
-**AI Universe** is a browser-based directory designed to help users discover AI-powered products, machine-learning platforms, and developer APIs through a unified interface.
+AI Universe is a web-based AI discovery platform that brings together listings from multiple public catalogs in one searchable interface.
 
-The project combines multiple public data sources with a locally bundled fallback catalog to reduce dependence on a single external API.
+The platform provides a centralized view of AI tools, machine-learning products, and developer APIs. Users can explore available services, review their descriptions and capabilities, identify pricing information, and visit their respective provider websites.
 
-Whether you are exploring AI tools, researching available services, or discovering APIs for development, AI Universe provides a convenient starting point.
+By combining remote catalog sources with locally bundled fallback data, AI Universe is designed to maintain directory functionality even when an external data source becomes unavailable.
 
-## Features
+## Core Features
 
-- **Multi-Source Catalog:** Retrieves AI tool and machine-learning API listings from multiple public sources.
-- **AI Tools Discovery:** Explore AI products and services from the Flocci AI Tools catalog.
-- **AI API Directory:** Discover machine-learning API listings from Public APIs.
-- **Search Functionality:** Search listings by name, description, category, and related keywords.
-- **Category Filtering:** Browse all listings, AI tools, AI APIs, or free/free-tier entries.
-- **Sorting:** Organize results alphabetically or by source.
-- **Dynamic Cards:** Display catalog information in an organized card layout.
-- **Detailed Information:** View additional information and visit the provider's website.
-- **Load More:** Browse results in manageable batches.
-- **Local Fallback:** Display bundled catalog entries when external sources are unavailable.
-- **Responsive Interface:** Access the directory across desktop, tablet, and mobile devices.
-- **Interactive Design:** Gradient buttons, hover effects, visual highlights, and a PCB-inspired header background.
+- **Multi-Source Discovery:** Integrates multiple public catalogs into one directory.
+- **AI Product Exploration:** Retrieves AI product and service listings from Flocci AI Tools.
+- **Machine-Learning API Directory:** Integrates API listings from Public APIs.
+- **Live Catalog Retrieval:** Fetches catalog data asynchronously using the JavaScript Fetch API.
+- **Unified Data Structure:** Normalizes records from different sources for consistent presentation.
+- **Search and Discovery:** Searches by tool name, description, category, subcategory, source, capabilities, and keywords.
+- **Category Filtering:** Switches between all listings, AI tools, AI APIs, and free or free-tier entries.
+- **Sorting Options:** Organizes results alphabetically or by catalog source.
+- **Dynamic Card Interface:** Displays catalog entries in a responsive card-based layout.
+- **Detailed Information Modal:** Presents descriptions, categories, pricing information, capabilities, and relevant links.
+- **Provider Navigation:** Provides direct links to external product and service websites.
+- **Progressive Results:** Loads additional entries through a Load More control.
+- **Duplicate Filtering:** Removes duplicate listings based on normalized names.
+- **Local Fallback Catalog:** Uses bundled JSON data when remote catalogs cannot provide results.
+- **Responsive Interface:** Supports desktop, tablet, and mobile screen sizes.
 
-## Data Sources
+## Integrated Data Sources
 
-AI Universe integrates the following public catalogs:
+| Data Source | Integration | Purpose |
+|---|---|---|
+| [Flocci AI Tools](https://aitools.flocci.in/) | Public JSON catalog snapshot | AI products, tools, capabilities, categories, and pricing information |
+| [Public APIs](https://publicapis.lol/) | Machine-learning API endpoint | Machine-learning API directory entries |
+| Local JSON Catalog | Bundled fallback file | Alternative listings when external catalogs are unavailable |
 
-| Source | Purpose |
+### Multi-Source Data Flow
+
+1. The application requests data from the available remote catalog endpoints independently.
+2. Each response is normalized into a common JavaScript object structure.
+3. Duplicate entries are removed.
+4. Retrieved records are displayed through dynamically generated cards.
+5. Search, filtering, and sorting operate on the combined catalog.
+6. If remote catalogs fail to return usable results, the application loads its local fallback JSON catalog.
+
+## Search and Exploration
+
+The directory provides several ways to explore its catalog:
+
+| Discovery Option | Function |
 |---|---|
-| [Flocci AI Tools](https://aitools.flocci.in/) | AI tools and product listings |
-| [Public APIs](https://publicapis.lol/) | Machine-learning API listings |
-| Local JSON Catalog | Fallback AI tools and API provider entries |
+| All | Displays all available listings |
+| AI Tools | Filters AI product and service entries |
+| AI APIs | Displays machine-learning API entries |
+| Free / Free Tier | Filters entries identified as free or free-to-start |
+| Name A–Z | Sorts listings alphabetically |
+| Source | Groups listings by their catalog source |
 
-The application attempts to retrieve data from the remote catalogs independently. If one source is unavailable, the other can still provide results. If both are unavailable, the application uses its bundled fallback data.
+The search interface supports matching across names, descriptions, categories, subcategories, capabilities, and keywords.
 
-**Important:** Free-tier availability does not mean unlimited or permanently free usage. API providers may change pricing, rate limits, access requirements, and endpoint availability.
+## Technology Stack
 
-## Technologies Used
+| Technology | Application |
+|---|---|
+| HTML5 | Website structure and content |
+| CSS3 | Visual styling, layouts, animations, and responsive presentation |
+| JavaScript | Application logic and dynamic rendering |
+| Bootstrap 5.3.3 | Responsive layout and interface components |
+| Bootstrap Icons | Interface icons |
+| Fetch API | Remote catalog retrieval |
+| JSON | Catalog data exchange and local fallback storage |
+| Google Fonts | Typography |
 
-- HTML5
-- CSS3
-- JavaScript (Vanilla JavaScript)
-- Bootstrap 5.3.3
-- Bootstrap Icons
-- Fetch API
-- JSON
-- Google Fonts
+## Visual Design
 
-## Project Structure
+AI Universe combines a modern interface with a distinctive technology-inspired visual identity.
+
+- Printed circuit board (PCB) artwork in the main header.
+- Animated glitter and shimmer effects.
+- Gradient buttons with teal, green, yellow, purple, lavender, and pink tones.
+- Interactive hover effects and glowing card borders.
+- Responsive catalog card layouts.
+- Modal-based information presentation.
+- Consistent spacing, typography, and visual hierarchy.
+
+## Repository Structure
 
 ```text
 ai-universe/
@@ -81,32 +109,33 @@ ai-universe/
 └── README.md
 ```
 
-| File / Folder | Description |
+| File or Directory | Description |
 |---|---|
-| `index.html` | Main application interface |
-| `script.js` | Main JavaScript functionality and catalog integration |
-| `assets/` | Project images and visual assets |
-| `data/` | Local fallback catalog data |
-| `ph.html` | Separate Programming Hero version |
-| `script-ph.js` | JavaScript associated with the Programming Hero version |
+| `index.html` | Main AI Universe interface and styling |
+| `script.js` | Multi-source catalog integration, normalization, searching, filtering, sorting, and rendering |
+| `ph.html` | Separate Programming Hero interface |
+| `script-ph.js` | JavaScript associated with the Programming Hero interface |
+| `assets/` | Project images and visual resources |
+| `data/` | Locally bundled fallback catalog |
+| `README.md` | Project documentation |
 
 ## Getting Started
 
-### 1. Clone the repository
+### Clone the Repository
 
 ```bash
 git clone https://github.com/aminbiography/ai-universe.git
 ```
 
-### 2. Navigate to the project directory
+### Navigate to the Project
 
 ```bash
 cd ai-universe
 ```
 
-### 3. Start a local development server
+### Start a Local Server
 
-The project loads a local JSON fallback file, so use a local HTTP server instead of opening `index.html` directly.
+The application loads a local JSON fallback file. Run it through a local HTTP server instead of opening the HTML file directly.
 
 Using Python:
 
@@ -114,69 +143,74 @@ Using Python:
 python -m http.server 8000
 ```
 
-### 4. Open in your browser
+### Open the Application
+
+Visit:
 
 ```text
 http://localhost:8000
 ```
 
-The application will attempt to load its remote catalogs and use local fallback data when necessary.
+The application will attempt to retrieve its remote catalogs and use the bundled fallback data when necessary.
 
-## How It Works
+## Live Deployment
 
-1. The application initializes its interface and catalog-loading process.
-2. It requests data from the Flocci AI Tools catalog and Public APIs independently.
-3. Retrieved entries are normalized into a common data structure.
-4. Duplicate entries are filtered out.
-5. Users can search, filter, and sort the available listings.
-6. Selecting a card opens its detailed information.
-7. If remote sources fail, the application loads its local fallback catalog.
+The application is hosted through GitHub Pages.
 
-## Live Demo
+**Live Website:** https://aminbiography.github.io/ai-universe/
 
-Explore the deployed application:
+**Source Repository:** https://github.com/aminbiography/ai-universe
 
-**[AI Universe — Live Web App](https://aminbiography.github.io/ai-universe/)**
+## API Availability and Data Reliability
 
-## Notes on API Availability
+AI Universe is an AI discovery directory rather than an AI model inference service.
 
-This project is a discovery directory, not an AI inference platform.
+The application lists AI products and API providers. It does not execute AI model requests or store third-party API credentials.
 
-It lists AI tools and API providers; it does not directly execute model inference requests or store provider API keys.
+A few important considerations:
 
-External catalogs may change their endpoints, response formats, CORS policies, access rules, or pricing. The local fallback helps maintain basic directory functionality when remote data cannot be retrieved.
+- Public API availability and endpoint behavior may change.
+- Free-tier access does not imply unlimited or permanently free usage.
+- Some providers require registration or API credentials when users access their services.
+- Browser access may depend on the external provider's CORS configuration.
+- Catalog descriptions, pricing, and availability should be verified on the respective provider websites.
+- Local fallback data provides an alternative when remote catalogs are unavailable.
 
-## Project Objectives
+Catalog information remains subject to the respective providers' attribution and licensing requirements.
 
-- Make AI tools easier to discover.
-- Bring multiple public AI catalogs into one interface.
-- Provide a convenient directory for developers and AI enthusiasts.
-- Practice API integration and asynchronous JavaScript.
-- Demonstrate data normalization, filtering, searching, and dynamic rendering.
-- Build a responsive and visually engaging web application.
+## Project Scope
+
+AI Universe brings together several areas of AI discovery:
+
+- AI tools and digital products.
+- Machine-learning platforms and services.
+- Developer APIs and integrations.
+- Product capabilities and feature exploration.
+- Pricing and free-tier discovery.
+- External provider and service navigation.
+- Multi-source catalog aggregation.
+
+The goal is to provide a unified interface for exploring the expanding landscape of artificial intelligence services.
 
 ## Author
 
 **Mohammad Aminul Islam**
 
-- GitHub: [@aminbiography](https://github.com/aminbiography)
-- Repository: [AI Universe](https://github.com/aminbiography/ai-universe)
+GitHub: https://github.com/aminbiography
 
-## License and Attribution
+Repository: https://github.com/aminbiography/ai-universe
 
-Catalog information is provided by its respective external sources and remains subject to their licensing and attribution requirements.
+## Data Attribution
 
-- [Flocci AI Tools](https://aitools.flocci.in/)
-- [Public APIs](https://publicapis.lol/)
+- Flocci AI Tools: https://aitools.flocci.in/
+- Public APIs: https://publicapis.lol/
 
-Check the respective providers' terms before redistributing their catalog data.
-
----
-
-<p align="center">
-  <strong>Explore. Discover. Build with AI.</strong>
-</p>
+Please consult the original sources for their current licensing, attribution, and redistribution requirements.
 
 ---
 
-#AIUniverseHub #AIUniverse #ArtificialIntelligence #AITools #AIAPIs #MachineLearning #DeepLearning #GenerativeAI #AIDirectory #AIPlatforms #FreeAITools #FreeAPIs #PublicAPIs #APIIntegration #WebDevelopment #FrontendDevelopment #HTML5 #CSS3 #JavaScript #VanillaJavaScript #Bootstrap #JSON #FetchAPI #ResponsiveWebDesign #DynamicWebApplications #OpenSource #GitHubProjects #WebDevelopmentProjects #MohammadAminulIslam
+#AIUniverse #ArtificialIntelligence #AITools #AIAPIs #AIDirectory #AIResearch #AIExploration #MachineLearning #DeepLearning #GenerativeAI #AIPlatforms #AIProducts #FreeAITools #FreeAPIs #PublicAPIs #APIIntegration #MultiSourceData #DataAggregation #JavaScript #VanillaJavaScript #HTML5 #CSS3 #Bootstrap #FetchAPI #JSON #FrontendDevelopment #WebDevelopment #ResponsiveWebDesign #DynamicWebApplications #GitHubPages #OpenSourceProjects #MohammadAminulIslam
+
+---
+
+**AI Universe — Explore AI. Discover Possibilities. Navigate Innovation.**
