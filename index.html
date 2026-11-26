@@ -1,80 +1,389 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ai universe</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.3.0/css/fontawesome.min.css" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/ce32527ea4.js" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-          
-    <!-- Internal style for margin and background -->
-    <style>
-        .main-body {
-            background-color: #FFFFFF;
-            margin: 50px 20px; /* Adjusted margin for responsiveness */
-            padding: 0 10px; /* Added padding to reduce margin on smaller screens */
-        }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Discover AI tools and machine-learning APIs in one place.">
+  <title>AI Universe — Discover AI Tools</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <style>
+    :root { --ink:#172033; --muted:#687386; --line:#e8ebf2; --brand:#635bff; --surface:#f7f8fc; }
+    * { box-sizing:border-box; }
+    body { margin:0; color:var(--ink); background:var(--surface); font-family:"DM Sans",sans-serif; }
+    h1,h2,h3,.brand { font-family:"Space Grotesk",sans-serif; }
+    .hero { padding:64px 20px 44px; color:#fff; text-align:center; background:linear-gradient(90deg,rgba(8,35,25,.94),rgba(8,35,25,.76)),url("assets/pcb-circuit-board.jpg") center/cover no-repeat; }
+    .hero h1 { font-size:clamp(2.2rem,5vw,3.7rem); font-weight:700; letter-spacing:-.04em; }
+    .hero p { max-width:660px; margin:14px auto 0; color:#d9dcf5; font-size:1.05rem; }
+    .hero-search { max-width:680px; margin:28px auto 0; display:flex; gap:8px; padding:7px; border-radius:14px; background:#fff; box-shadow:0 12px 40px #11142d55; }
+    .hero-search input { border:0; box-shadow:none!important; padding:12px 14px; }
+    .hero-search button { border:0; border-radius:10px; padding:0 22px; background:var(--brand); color:#fff; }
+    .toolbar { display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between; margin:28px auto 18px; }
+    .filter-row { display:flex; flex-wrap:wrap; gap:8px; }
+    .filter-btn { border:1px solid var(--line); background:#fff; color:var(--muted); border-radius:999px; padding:8px 14px; font-size:.9rem; }
+    .filter-btn.active { background:#efeeff; color:var(--brand); border-color:#d9d6ff; font-weight:700; }
+    .tool-card { height:100%; border:1px solid var(--line); border-radius:18px; background:#fff; overflow:hidden; transition:transform .18s ease,box-shadow .18s ease; }
+    .tool-card:hover { transform:translateY(-4px); box-shadow:0 14px 35px #25304a12; }
+    .tool-mark { height:64px; width:64px; display:grid; place-items:center; border-radius:17px; color:var(--brand); background:#f0efff; font-size:1.7rem; }
+    .tool-card .card-body { padding:22px; }
+    .tool-name { font-family:"Space Grotesk",sans-serif; font-weight:700; font-size:1.12rem; }
+    .tool-description { min-height:66px; color:var(--muted); font-size:.93rem; line-height:1.55; }
+    .pill { display:inline-flex; align-items:center; border-radius:999px; padding:5px 9px; font-size:.75rem; font-weight:700; background:#f1f3f8; color:#586174; }
+    .pill.free { background:#e8f8ef; color:#16834a; }
+    .pill.api { background:#eaf2ff; color:#2864b5; }
+    .source-line { color:#8992a2; font-size:.78rem; }
+    .detail-list { padding-left:18px; color:var(--muted); }
+    .status { border:1px solid var(--line); border-radius:12px; background:#fff; padding:12px 15px; color:var(--muted); font-size:.9rem; }
+    footer { border-top:1px solid var(--line); color:var(--muted); }
+    .btn-primary { background:var(--brand); border-color:var(--brand); }
+    @media(max-width:575px){ .hero{padding-top:48px}.hero-search button{padding:0 14px}.tool-description{min-height:0} }
 
-        /* Style for images in the flex container */
-        .image-container {
-            margin-top: 30px;
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: center; /* Center images horizontally */
-            gap: 20px; /* Reduced row-gap for smaller screens */
-        }
+    /* Premium emerald glitter treatment — visual layer only; card markup/data stay unchanged. */
+    :root {
+      --glow-green: #9dff72;
+      --glow-mint: #45ffc1;
+      --glow-gold: #ffe18a;
+      --deep-emerald: #062d1d;
+    }
+    body {
+      background:
+        radial-gradient(circle at 8% 18%, rgba(99,91,255,.055), transparent 25rem),
+        radial-gradient(circle at 92% 72%, rgba(69,255,193,.07), transparent 28rem),
+        #f7f8fc;
+    }
+    .hero {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      min-height: 430px;
+      display: grid;
+      align-items: center;
+      background-color: var(--deep-emerald);
+      background-image:
+        linear-gradient(90deg, rgba(3,31,19,.38), rgba(3,31,19,.12) 48%, rgba(3,31,19,.38)),
+        url("assets/pcb-circuit-board.jpg");
+      background-position: center, center;
+      background-size: cover, contain;
+      background-repeat: no-repeat;
+      box-shadow: 0 18px 55px rgba(4,35,23,.22);
+    }
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: -45%;
+      z-index: -1;
+      pointer-events: none;
+    }
+    .hero::before {
+      background-image:
+        radial-gradient(circle, rgba(220,255,160,.95) 0 1px, transparent 2px),
+        radial-gradient(circle, rgba(255,226,138,.85) 0 1.4px, transparent 2.5px),
+        radial-gradient(circle, rgba(89,255,194,.8) 0 1px, transparent 2px);
+      background-size: 83px 91px, 137px 121px, 191px 167px;
+      background-position: 0 0, 42px 28px, 91px 73px;
+      opacity: .34;
+      animation: glitter-drift 22s linear infinite;
+    }
+    .hero::after {
+      background: linear-gradient(112deg, transparent 34%, rgba(203,255,172,.13) 48%, transparent 61%);
+      transform: translateX(-65%);
+      animation: glitter-sweep 8s ease-in-out infinite;
+    }
+    .hero .container { position: relative; z-index: 1; }
+    .hero .brand {
+      display: inline-flex;
+      align-items: center;
+      padding: 9px 17px;
+      border: 1px solid rgba(190,255,160,.38);
+      border-radius: 999px;
+      background: rgba(4,40,25,.56);
+      box-shadow: 0 0 22px rgba(139,255,106,.18), inset 0 0 16px rgba(139,255,106,.08);
+      letter-spacing: .14em;
+      text-shadow: 0 0 14px rgba(179,255,132,.65);
+    }
+    .hero h1 {
+      color: #f5ffe9;
+      text-shadow: 0 3px 22px rgba(0,0,0,.55), 0 0 26px rgba(166,255,120,.26);
+    }
+    .hero p { color: #e0f4df; text-shadow: 0 2px 12px rgba(0,0,0,.55); }
+    .hero-search {
+      border: 1px solid rgba(200,255,174,.58);
+      box-shadow: 0 0 0 4px rgba(139,255,106,.08), 0 16px 48px rgba(0,0,0,.34);
+    }
+    .hero-search:focus-within {
+      box-shadow: 0 0 0 4px rgba(139,255,106,.2), 0 0 28px rgba(139,255,106,.25), 0 16px 48px rgba(0,0,0,.34);
+    }
+    .hero-search button {
+      background: linear-gradient(135deg, #635bff, #8b5cf6);
+      box-shadow: 0 5px 16px rgba(99,91,255,.3);
+      transition: transform .2s ease, filter .2s ease;
+    }
+    .hero-search button:hover { transform: translateY(-1px); filter: brightness(1.12); }
 
-        /* Style for the footer button */
-        .footer-button {
-            margin-top: 30px;
-        }
-    </style>
+    .filter-btn {
+      transition: color .2s ease, background .2s ease, border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+    }
+    .filter-btn:hover {
+      transform: translateY(-2px);
+      border-color: rgba(99,91,255,.4);
+      box-shadow: 0 5px 16px rgba(99,91,255,.1);
+    }
+    .filter-btn.active {
+      box-shadow: 0 0 0 3px rgba(99,91,255,.07), 0 5px 18px rgba(99,91,255,.12);
+    }
+    .tool-card {
+      position: relative;
+      isolation: isolate;
+      border-color: rgba(208,215,230,.9);
+      box-shadow: 0 7px 22px rgba(28,39,70,.045);
+    }
+    .tool-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(99,91,255,.35), rgba(69,255,193,.2), rgba(255,225,138,.24), rgba(99,91,255,.22));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: .35;
+      pointer-events: none;
+    }
+    .tool-card::after {
+      content: "";
+      position: absolute;
+      top: -70%;
+      left: -55%;
+      width: 55%;
+      height: 240%;
+      transform: rotate(24deg);
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.58), transparent);
+      opacity: 0;
+      pointer-events: none;
+    }
+    .tool-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(133,124,255,.48);
+      box-shadow: 0 18px 42px rgba(57,55,130,.13), 0 0 0 1px rgba(99,91,255,.06);
+    }
+    .tool-card:hover::after {
+      opacity: .8;
+      animation: card-shimmer 1.05s ease forwards;
+    }
+    .tool-mark {
+      position: relative;
+      overflow: hidden;
+      color: #5148e5;
+      background: linear-gradient(145deg, #f1f0ff, #e8fff5);
+      box-shadow: inset 0 0 0 1px rgba(99,91,255,.08), 0 7px 20px rgba(99,91,255,.08);
+    }
+    .tool-mark::after {
+      content: "";
+      position: absolute;
+      width: 24px;
+      height: 120%;
+      top: -10%;
+      left: -45%;
+      transform: rotate(25deg);
+      background: rgba(255,255,255,.7);
+      filter: blur(5px);
+      transition: left .45s ease;
+    }
+    .tool-card:hover .tool-mark::after { left: 125%; }
+    .pill {
+      border: 1px solid rgba(104,116,140,.08);
+      box-shadow: 0 2px 8px rgba(31,41,65,.035);
+    }
+    .pill.free {
+      border-color: rgba(22,131,74,.12);
+      box-shadow: 0 0 12px rgba(22,190,100,.08);
+    }
+    .status {
+      box-shadow: 0 6px 20px rgba(31,41,65,.035);
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #635bff, #8175ff);
+      border: 0;
+      box-shadow: 0 7px 18px rgba(99,91,255,.2);
+    }
+    .btn-outline-primary {
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .btn-outline-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(99,91,255,.16); }
+    .modal-content {
+      box-shadow: 0 24px 80px rgba(15,24,48,.24);
+      border: 1px solid rgba(99,91,255,.12) !important;
+    }
+    footer { background: rgba(255,255,255,.72); }
+
+    @keyframes glitter-drift {
+      from { transform: translate3d(0,0,0); }
+      to { transform: translate3d(83px,91px,0); }
+    }
+    @keyframes glitter-sweep {
+      0%, 18% { transform: translateX(-75%); opacity: 0; }
+      38% { opacity: 1; }
+      65%, 100% { transform: translateX(75%); opacity: 0; }
+    }
+    @keyframes card-shimmer {
+      from { left: -55%; }
+      to { left: 135%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+    @media(max-width:575px) {
+      .hero { min-height: 390px; background-size: cover, contain; }
+    }
+
+
+    /* Unified gradient buttons: teal, green, yellow, purple, lavender and pink. */
+    :root {
+      --button-gradient: linear-gradient(105deg,
+        #25869f 0%,
+        #49c98c 28%,
+        #e7df4f 48%,
+        #8d68dc 72%,
+        #d96cb8 100%);
+      --button-gradient-hover: linear-gradient(105deg,
+        #36a5bd 0%,
+        #5be0a0 27%,
+        #f2e96a 47%,
+        #a987f2 72%,
+        #ed83ca 100%);
+    }
+    .btn,
+    button:not(.btn-close):not(.btn-close *) {
+      background-image: var(--button-gradient) !important;
+      background-size: 180% 100% !important;
+      background-position: 0% 50% !important;
+      color: #fff !important;
+      border: 0 !important;
+      border-radius: 10px;
+      font-weight: 700;
+      text-shadow: 0 1px 1px rgba(20,35,55,.16);
+      box-shadow: 0 5px 16px rgba(79,105,160,.17);
+      transition: background-position .35s ease, transform .25s ease,
+                  box-shadow .25s ease, filter .25s ease !important;
+    }
+    .btn:hover,
+    button:not(.btn-close):not(.btn-close *) :hover,
+    button:not(.btn-close):hover {
+      background-image: var(--button-gradient-hover) !important;
+      background-position: 100% 50% !important;
+      color: #fff !important;
+      transform: translateY(-2px);
+      box-shadow: 0 9px 24px rgba(130,91,190,.25), 0 0 0 3px rgba(197,154,255,.10);
+      filter: saturate(1.08) brightness(1.03);
+    }
+    .btn:active,
+    button:not(.btn-close):active {
+      transform: translateY(0);
+      box-shadow: 0 3px 10px rgba(79,105,160,.18);
+    }
+    .btn:focus-visible,
+    button:not(.btn-close):focus-visible {
+      outline: 3px solid rgba(173,139,255,.42);
+      outline-offset: 3px;
+    }
+    /* Keep the filter row's active/inactive distinction while retaining gradients. */
+    .filter-btn {
+      background-image: var(--button-gradient) !important;
+      color: #fff !important;
+      border: 0 !important;
+      font-weight: 700;
+      opacity: .82;
+    }
+    .filter-btn.active {
+      opacity: 1;
+      box-shadow: 0 0 0 3px rgba(191,151,255,.18), 0 7px 20px rgba(130,91,190,.2);
+    }
+    .filter-btn:hover { opacity: 1; }
+    .hero-search button {
+      background-image: var(--button-gradient) !important;
+      border-radius: 9px;
+    }
+    .btn-outline-primary {
+      border: 0 !important;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .btn, button:not(.btn-close) { transition: none !important; }
+    }
+
+  </style>
 </head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <div class="brand mb-3"><i class="bi bi-stars me-2"></i>AI UNIVERSE</div>
+      <h1>Explore the world of AI</h1>
+      <p>Discover useful AI products, machine-learning services and developer APIs from multiple public catalogs.</p>
+      <form class="hero-search" id="search-form" role="search">
+        <input id="search-input" class="form-control" type="search" placeholder="Search AI tools, APIs or capabilities..." aria-label="Search AI tools and APIs">
+        <button type="submit" aria-label="Search"><i class="bi bi-search"></i></button>
+      </form>
+    </div>
+  </header>
 
-<body class="main-body">
-    <!-- Header Section -->
-    <header class="header text-center">
-        <h1 class="pb-2" style="color: darkgrey;">welcome to the ai universe</h1>
-        <button onclick="onclicSortByDate()" class="btn btn-secondary mb-3">Login</button> 
-    </header>
-
-    <!-- Main Section -->
-    <main>
-        <section class="aiBody row row-cols-1 row-cols-md-3 g-4" id="main-card">
-            <!-- Cards generated dynamically will be placed here -->
-        </section>
-     
-        <!-- Modal Section -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body" id="modal-body">
-                        <!-- Modal content will be inserted dynamically -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <!-- Images Section -->
-    <div class="image-container">
-        <img src="https://i.pinimg.com/564x/29/00/b1/2900b17bd1b803c5ba45dea95d8fab37.jpg" alt="">
-        <img src="https://i.pinimg.com/564x/29/00/b1/2900b17bd1b803c5ba45dea95d8fab37.jpg" alt="">
+  <main class="container py-3 py-md-4">
+    <div class="toolbar">
+      <div class="filter-row" aria-label="Content filters">
+        <button class="filter-btn active" data-filter="all" type="button">All</button>
+        <button class="filter-btn" data-filter="tool" type="button">AI Tools</button>
+        <button class="filter-btn" data-filter="api" type="button">AI APIs</button>
+        <button class="filter-btn" data-filter="free" type="button">Free / Free tier</button>
+      </div>
+      <div class="d-flex align-items-center gap-2">
+        <label for="sort-select" class="small text-secondary">Sort</label>
+        <select id="sort-select" class="form-select form-select-sm" style="width:auto">
+          <option value="name">Name A–Z</option>
+          <option value="source">Source</option>
+        </select>
+      </div>
     </div>
 
-    <!-- Footer Section -->
-    <footer class="text-center footer-button">
-        <button onclick="onclicSortByDate()" class="btn btn-secondary mb-3">More</button> 
-    </footer>
+    <div id="status" class="status mb-3" role="status" aria-live="polite">Loading catalogs…</div>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h2 class="h5 mb-0">Discover</h2>
+      <span id="result-count" class="small text-secondary"></span>
+    </div>
+    <section id="main-card" class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4" aria-label="AI tools and APIs"></section>
+    <div id="empty-state" class="text-center py-5 d-none">
+      <i class="bi bi-search fs-1 text-secondary"></i>
+      <h3 class="h5 mt-3">No matching results</h3>
+      <p class="text-secondary">Try another keyword or choose a different filter.</p>
+    </div>
+    <div class="text-center py-4">
+      <button id="load-more" class="btn btn-outline-primary px-4 d-none" type="button">Load more</button>
+    </div>
+  </main>
 
-    <!-- JS and Bootstrap Bundle Links -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
+  <footer class="py-4 mt-4">
+    <div class="container small d-flex flex-column flex-md-row justify-content-between gap-2">
+      <span>AI Universe · A multi-source discovery project</span>
+      <span>Catalog data belongs to its respective providers. Availability and pricing may change.</span>
+    </div>
+  </footer>
+
+  <div class="modal fade" id="detail-modal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content border-0 rounded-4">
+        <div class="modal-header border-0 px-4 pt-4">
+          <div><div id="modal-badges" class="d-flex gap-2 mb-2"></div><h2 id="modal-title" class="modal-title fs-4"></h2></div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div id="modal-body" class="modal-body px-4 pb-4"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

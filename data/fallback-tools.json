@@ -1,0 +1,100 @@
+[
+  {
+    "id": "fallback-huggingface",
+    "name": "Hugging Face",
+    "description": "Platform for discovering, sharing and using machine-learning models, datasets and AI applications.",
+    "category": "Machine Learning",
+    "pricing": "Free account and usage limits; paid options also available",
+    "free": true,
+    "website": "https://huggingface.co/",
+    "detailsUrl": "https://huggingface.co/docs",
+    "source": "Local fallback",
+    "kind": "tool",
+    "features": [
+      "Model hub",
+      "Datasets",
+      "Inference"
+    ]
+  },
+  {
+    "id": "fallback-google-ai-studio",
+    "name": "Google AI Studio",
+    "description": "Web-based environment for prototyping with Google's Gemini models and API.",
+    "category": "AI Development",
+    "pricing": "Free usage tier subject to current limits and terms",
+    "free": true,
+    "website": "https://aistudio.google.com/",
+    "detailsUrl": "https://ai.google.dev/gemini-api/docs",
+    "source": "Local fallback",
+    "kind": "tool",
+    "features": [
+      "Gemini API",
+      "Prompt prototyping"
+    ]
+  },
+  {
+    "id": "fallback-groq",
+    "name": "GroqCloud",
+    "description": "Developer platform for running supported open models through an inference API.",
+    "category": "AI APIs",
+    "pricing": "Free developer tier subject to rate limits and provider terms",
+    "free": true,
+    "website": "https://console.groq.com/",
+    "detailsUrl": "https://console.groq.com/docs",
+    "source": "Local fallback",
+    "kind": "api",
+    "features": [
+      "LLM inference",
+      "API access"
+    ]
+  },
+  {
+    "id": "fallback-cloudflare",
+    "name": "Cloudflare Workers AI",
+    "description": "Run supported AI models through Cloudflare's developer platform.",
+    "category": "AI APIs",
+    "pricing": "Free allocation and paid usage; check current limits",
+    "free": true,
+    "website": "https://developers.cloudflare.com/workers-ai/",
+    "detailsUrl": "https://developers.cloudflare.com/workers-ai/",
+    "source": "Local fallback",
+    "kind": "api",
+    "features": [
+      "Model inference",
+      "Workers integration"
+    ]
+  },
+  {
+    "id": "fallback-cohere",
+    "name": "Cohere",
+    "description": "Language AI platform offering models and APIs for text generation, embeddings and reranking.",
+    "category": "AI APIs",
+    "pricing": "Trial or evaluation access may be available; verify current terms",
+    "free": true,
+    "website": "https://cohere.com/",
+    "detailsUrl": "https://docs.cohere.com/",
+    "source": "Local fallback",
+    "kind": "api",
+    "features": [
+      "Text generation",
+      "Embeddings",
+      "Reranking"
+    ]
+  },
+  {
+    "id": "fallback-openrouter",
+    "name": "OpenRouter",
+    "description": "Unified API gateway for accessing models from multiple AI providers, including models with free availability.",
+    "category": "AI APIs",
+    "pricing": "Some models may be free; availability and limits vary",
+    "free": true,
+    "website": "https://openrouter.ai/",
+    "detailsUrl": "https://openrouter.ai/docs",
+    "source": "Local fallback",
+    "kind": "api",
+    "features": [
+      "Multi-provider API",
+      "Model routing"
+    ]
+  }
+]
