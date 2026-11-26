@@ -1,5 +1,7 @@
-# AI Universe Hub  
-### Discover the World of Artificial Intelligence
+<p align="center">
+    # AI Universe Hub  
+    ### Discover the World of Artificial Intelligence
+</p>
 
 <p align="center">
   <strong>Explore AI tools, machine-learning platforms, and developer APIs in one place.</strong>
