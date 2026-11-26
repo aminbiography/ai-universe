@@ -6,8 +6,7 @@
 </p>
 
 <p align="center">
-  <a href="https://aminbiography.github.io/ai-universe/">Live Demo</a> ·
-  <a href="https://github.com/aminbiography/ai-universe">GitHub Repository</a>
+  <a href="https://aminbiography.github.io/ai-universe/">Live Demo</a>·
 </p>
 
 ---
