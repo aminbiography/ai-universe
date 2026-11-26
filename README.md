@@ -136,7 +136,7 @@ The application will attempt to load its remote catalogs and use local fallback 
 
 Explore the deployed application:
 
-**[AI Universe — Live Website](https://aminbiography.github.io/ai-universe/)**
+**[AI Universe — Live Web App](https://aminbiography.github.io/ai-universe/)**
 
 ## Notes on API Availability
 
